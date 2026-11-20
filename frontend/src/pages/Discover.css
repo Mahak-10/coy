@@ -71,7 +71,7 @@
   filter: contrast(1.02) brightness(1.02);
 }
 
-/* Header: Name, Age & Interactive Active Status Badge */
+/* Header: Name, Age */
 .profile-card h2 {
   font-size: 22px;
   font-weight: 800;
@@ -79,30 +79,6 @@
   margin: 0 0 8px 0;
   line-height: 1.25;
   letter-spacing: -0.4px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.profile-card h2::after {
-  content: "• Active";
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.3px;
-  padding: 3px 9px;
-  background: #f0fdf4;
-  color: #16a34a;
-  border: 1.5px solid #16a34a;
-  border-radius: 999px;
-  box-shadow: 2px 2px 0 #16a34a;
-  display: inline-flex;
-  align-items: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.profile-card:hover h2::after {
-  transform: scale(1.05);
-  box-shadow: 3px 3px 0 #15803d;
 }
 
 /* Meta Pills: College (p:1) & City (p:2) */

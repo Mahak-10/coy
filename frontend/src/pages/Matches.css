@@ -59,7 +59,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  cursor: pointer;
+  cursor: default;
   user-select: none;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
 }
@@ -95,7 +95,7 @@
   filter: contrast(1.02) brightness(1.02);
 }
 
-/* Header: Name, Age & Interactive Active Status Badge */
+/* Header: Name, Age */
 .match-card h2 {
   font-size: 22px;
   font-weight: 800;
@@ -103,30 +103,6 @@
   margin: 0 0 8px 0;
   line-height: 1.25;
   letter-spacing: -0.4px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.match-card h2::after {
-  content: "• Active";
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.3px;
-  padding: 3px 9px;
-  background: #f0fdf4;
-  color: #16a34a;
-  border: 1.5px solid #16a34a;
-  border-radius: 999px;
-  box-shadow: 2px 2px 0 #16a34a;
-  display: inline-flex;
-  align-items: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.match-card:hover h2::after {
-  transform: scale(1.05);
-  box-shadow: 3px 3px 0 #15803d;
 }
 
 /* Meta Pills: College (p:1) & City (p:2) */
@@ -206,26 +182,7 @@
   border-left-color: #ff3680;
 }
 
-/* Interactive Chat / Match Action Hint */
-.match-card::after {
-  content: "💬 Click to chat with match";
-  display: block;
-  font-size: 11.5px;
-  font-weight: 800;
-  color: #9c95a6;
-  text-align: center;
-  margin-top: auto;
-  padding-top: 10px;
-  border-top: 1.5px dashed #f0e6eb;
-  letter-spacing: 0.3px;
-  transition: all 0.2s ease;
-}
 
-.match-card:hover::after {
-  color: #ff3680;
-  border-color: #ffd6e5;
-  transform: translateY(-1px);
-}
 
 /* ==========================================================================
    EMPTY STATE
