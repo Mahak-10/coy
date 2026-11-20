@@ -1,0 +1,540 @@
+/* ==========================================================================
+   DISCOVER PAGE
+   ========================================================================== */
+
+.discover-page {
+  min-height: calc(100vh - 72px);
+  min-height: calc(100dvh - 72px);
+  padding: 24px 16px 40px;
+  background: #faf8fb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* ==========================================================================
+   INTERACTIVE PROFILE CARD (Shared with Match Card)
+   ========================================================================== */
+
+.profile-card {
+  width: 350px;
+  max-width: calc(100vw - 32px);
+  background: #ffffff;
+  border: 2.5px solid #17131e;
+  border-radius: 24px;
+  box-shadow: 6px 6px 0 #17131e;
+  padding: 16px;
+  text-align: left;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 12px auto;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  cursor: grab;
+  overscroll-behavior: contain;
+  position: relative;
+  transition: box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.profile-card:hover {
+  box-shadow: 8px 8px 0 #ff3680;
+  border-color: #17131e;
+}
+
+.profile-card:active {
+  cursor: grabbing;
+  box-shadow: 10px 10px 0 #ff3680;
+}
+
+/* Profile Photo with subtle hover zoom effect */
+.profile-card img {
+  width: 100%;
+  height: 270px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 16px;
+  border: 2px solid #17131e;
+  display: block;
+  margin: 0 0 14px 0;
+  pointer-events: none;
+  background-color: #ffe4ee;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.profile-card:hover img {
+  filter: contrast(1.02) brightness(1.02);
+}
+
+/* Header: Name, Age & Interactive Active Status Badge */
+.profile-card h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #17131e;
+  margin: 0 0 8px 0;
+  line-height: 1.25;
+  letter-spacing: -0.4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-card h2::after {
+  content: "• Active";
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  padding: 3px 9px;
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1.5px solid #16a34a;
+  border-radius: 999px;
+  box-shadow: 2px 2px 0 #16a34a;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-card:hover h2::after {
+  transform: scale(1.05);
+  box-shadow: 3px 3px 0 #15803d;
+}
+
+/* Meta Pills: College (p:1) & City (p:2) */
+.profile-card p:nth-of-type(1) {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #ff3680;
+  background: #fff0f5;
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1px solid #ffd6e5;
+  width: fit-content;
+  margin: 0 6px 8px 0;
+  line-height: 1.3;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.profile-card p:nth-of-type(1)::before {
+  content: "🎓";
+  margin-right: 5px;
+  font-size: 13px;
+}
+
+.profile-card p:nth-of-type(1):hover {
+  background: #ffe4ee;
+  transform: translateY(-1px);
+}
+
+.profile-card p:nth-of-type(2) {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #5d5668;
+  background: #f4f2f6;
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1px solid #e3dfe8;
+  width: fit-content;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.profile-card p:nth-of-type(2)::before {
+  content: "📍";
+  margin-right: 4px;
+  font-size: 12px;
+}
+
+.profile-card p:nth-of-type(2):hover {
+  background: #ebe7f0;
+  transform: translateY(-1px);
+}
+
+/* Interactive Bio Quote Box (p:3) */
+.profile-card p:nth-of-type(3) {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #2b2533;
+  background: #fff9fb;
+  border: 1.5px solid #f2dfe7;
+  border-left: 4px solid #ff3680;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin: 2px 0 8px 0;
+  word-break: break-word;
+  transition: all 0.2s ease;
+}
+
+.profile-card p:nth-of-type(3):hover {
+  background: #fff2f7;
+  transform: translateX(2px);
+  border-color: #ffd6e5;
+  border-left-color: #ff3680;
+}
+
+/* Interests Pill (p:4) */
+.profile-card p:nth-of-type(4) {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ff3680;
+  background: #ffe4ee;
+  border: 1.5px solid #ff3680;
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin: 2px 0 0 0;
+  align-self: flex-start;
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.profile-card p:nth-of-type(4)::before {
+  content: "✨";
+  margin-right: 5px;
+  font-size: 11px;
+}
+
+.profile-card p:nth-of-type(4):hover {
+  background: #ff3680;
+  color: #ffffff;
+  transform: scale(1.04);
+}
+
+
+/* ==========================================================================
+   SWIPE BUTTONS
+   ========================================================================== */
+
+.swipe-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.swipe-buttons button {
+  flex: 1;
+  padding: 13px 0;
+  border: 2.5px solid #17131e;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  letter-spacing: -0.2px;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Pass Button */
+.swipe-buttons button:first-child {
+  background: #ffffff;
+  color: #17131e;
+  box-shadow: 4px 4px 0 #17131e;
+}
+
+.swipe-buttons button:first-child::before {
+  content: "✕";
+  font-size: 16px;
+  font-weight: 900;
+  color: #ff4d6d;
+}
+
+.swipe-buttons button:first-child:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0 #17131e;
+  background: #fff5f8;
+}
+
+.swipe-buttons button:first-child:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #17131e;
+}
+
+/* Like Button */
+.swipe-buttons button:last-child {
+  background: #ff3680;
+  color: #ffffff;
+  box-shadow: 4px 4px 0 #17131e;
+}
+
+.swipe-buttons button:last-child::before {
+  content: "♥";
+  font-size: 17px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.swipe-buttons button:last-child:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0 #17131e;
+  background: #ff1f71;
+}
+
+.swipe-buttons button:last-child:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #17131e;
+}
+
+/* ==========================================================================
+   EMPTY STATE
+   ========================================================================== */
+
+.empty-state {
+  margin: 40px auto;
+  padding: 40px 24px;
+  max-width: 360px;
+  background: #ffffff;
+  border: 2.5px dashed #ff3680;
+  border-radius: 24px;
+  box-shadow: 6px 6px 0 #ffd6e5;
+  font-size: 18px;
+  font-weight: 800;
+  color: #17131e;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.empty-state:hover {
+  transform: scale(1.02);
+}
+
+/* ==========================================================================
+   MATCH CELEBRATION POPUP OVERLAY
+   ========================================================================== */
+
+.match-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(23, 19, 30, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 16px;
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.match-popup {
+  width: 380px;
+  max-width: 100%;
+  padding: 36px 26px;
+  background: linear-gradient(145deg, #ff3680 0%, #ff5c94 100%);
+  border: 3px solid #17131e;
+  border-radius: 30px;
+  box-shadow: 8px 8px 0 #17131e;
+  text-align: center;
+  color: #ffffff;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.match-avatars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #17131e;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 20px;
+  color: #ff3680;
+  box-shadow: 4px 4px 0 #17131e;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.you-avatar {
+  background: #fff0f5;
+  color: #ff3680;
+}
+
+.heart-circle {
+  width: 52px;
+  height: 52px;
+  background: #ffffff;
+  color: #ff3680;
+  border: 3px solid #17131e;
+  box-shadow: 3px 3px 0 #17131e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin: 0 -12px;
+  z-index: 2;
+  animation: pulseHeart 1.4s infinite ease-in-out;
+}
+
+@keyframes pulseHeart {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+
+.match-popup h1 {
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: -0.8px;
+  margin-bottom: 8px;
+  text-shadow: 2px 2px 0 rgba(23, 19, 30, 0.25);
+}
+
+.match-popup p {
+  color: #fff0f5;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+.whatsapp-button,
+.continue-button {
+  display: block;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  box-sizing: border-box;
+  letter-spacing: -0.2px;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.whatsapp-button {
+  background: #25D366;
+  color: #ffffff;
+  border: 2.5px solid #17131e;
+  box-shadow: 4px 4px 0 #17131e;
+  margin-bottom: 12px;
+}
+
+.whatsapp-button:hover {
+  background: #22bf5b;
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0 #17131e;
+}
+
+.whatsapp-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #17131e;
+}
+
+.continue-button {
+  background: #ffffff;
+  color: #17131e;
+  border: 2.5px solid #17131e;
+  box-shadow: 4px 4px 0 #17131e;
+}
+
+.continue-button:hover {
+  background: #fff5f8;
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0 #17131e;
+}
+
+.continue-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #17131e;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 600px) {
+  .discover-page {
+    padding: 16px 12px 24px;
+  }
+
+  .profile-card {
+    width: 100%;
+    max-width: 340px;
+    padding: 14px;
+  }
+
+  .profile-card img {
+    height: 240px;
+    margin-bottom: 12px;
+  }
+
+  .profile-card h2 {
+    font-size: 20px;
+  }
+
+  .swipe-buttons {
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .swipe-buttons button {
+    padding: 11px 0;
+    font-size: 14px;
+  }
+
+  .match-popup {
+    padding: 28px 18px;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .heart-circle {
+    width: 42px;
+    height: 42px;
+    font-size: 22px;
+  }
+
+  .match-popup h1 {
+    font-size: 28px;
+  }
+}
