@@ -533,15 +533,5 @@ node seed.js
 
 <div align="left">
   <h3>Mahak Singh</h3>
-  <p><strong>B.Tech – Computer Science and Engineering</strong></p>
-
-  <a href="https://github.com/Mahak-10">
-    <img src="https://img.shields.io/badge/GitHub-Mahak--10-181717?style=flat-square&logo=github" alt="GitHub" />
-  </a>
-  &nbsp;
-  <a href="https://linkedin.com/in/mahak1210/">
-    <img src="https://img.shields.io/badge/LinkedIn-Mahak_Singh-0A66C2?style=flat-square&logo=linkedin" alt="LinkedIn" />
-  </a>
-  <br /><br />
-  <em>Developed with dedication as part of the <strong>Coy SDE Intern Assignment</strong>.</em>
+  
 </div>
