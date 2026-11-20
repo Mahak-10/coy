@@ -38,8 +38,7 @@
 - [11. Testing the Application](#11-testing-the-application)
   - [Manual Test Scenarios](#manual-test-scenarios)
   - [Resetting Demo Data](#resetting-demo-data)
-- [12. Privacy Considerations](#12-privacy-considerations)
-- [13. Future Improvements](#13-future-improvements)
+
 - [14. Author](#14-author)
 
 ---
@@ -528,32 +527,7 @@ node seed.js
 
 ---
 
-## 12. Privacy Considerations
 
-Privacy and consent are fundamental to dating and discovery architectures:
-
-1. **Confidentiality of One-Sided Likes:** Incoming likes are never surfaced to the logged-in user unless reciprocal interest is confirmed.
-2. **Double Opt-In Integrity:** Both parties must independently express a positive intent before connection details or profiles are shared in the Matches section.
-3. **Information Leakage Prevention:** The backend query for `/api/feed` strictly filters candidate profiles without exposing private swipe tables.
-4. **Permanent Feed Exclusion:** Swiped profiles are stored in the database and filtered from the feed query to prevent repetitive profile exposure.
-5. **Architectural Scope Note:** In accordance with assignment guidelines, this project utilizes a single logged-in user assumption. Full RBAC (Role-Based Access Control), JWT sessions, and encrypted user credentials represent the natural step for multi-tenant deployment.
-
----
-
-## 13. Future Improvements
-
-Key architectural enhancements planned for a full production deployment:
-
-- [ ] **Multi-User Authentication:** Secure JWT-based auth with OAuth (Google, Apple, Phone OTP).
-- [ ] **Dynamic Discovery Filters:** Filter feed by age bracket, geographic radius, college, and shared interests.
-- [ ] **Recommendation Algorithm:** Vector embeddings or collaborative filtering to suggest profiles with high matching probability.
-- [ ] **Real-Time WebSockets:** Socket.io integration for instant match alerts and in-app chat.
-- [ ] **In-App Messaging:** End-to-end encrypted messaging between confirmed mutual matches.
-- [ ] **Reporting & Trust/Safety:** User reporting, blocking, automated photo moderation, and rate limiting.
-- [ ] **Automated Testing Suite:** End-to-end testing with Playwright / Cypress, frontend unit testing with Vitest, and API integration testing with Supertest.
-- [ ] **Cloud Deployment:** Containerization via Docker, backend deployment on Render/AWS, and database migration to PostgreSQL/Supabase.
-
----
 
 ## 14. Author
 
